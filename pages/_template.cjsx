@@ -7,6 +7,7 @@ colorPairsPicker = require 'color-pairs-picker'
 chroma = require 'chroma-js'
 includes = require 'underscore.string/include'
 last = require 'lodash/array/last'
+{link} = require 'gatsby-helpers'
 
 # Style code
 require 'css/github.css'

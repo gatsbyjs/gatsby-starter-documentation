@@ -4,6 +4,7 @@ Router = require 'react-router'
 {Container, Grid, Breakpoint, Span} = require 'react-responsive-grid'
 Typography = require 'typography'
 sortBy = require 'lodash/collection/sortBy'
+{templateChildrenPages} = require 'gatsby-helpers'
 
 typography = Typography()
 {rhythm, fontSizeToMS} = typography
@@ -17,7 +18,7 @@ module.exports = React.createClass
 
   render: ->
     {rhythm} = @props.typography
-    childPages = @props.childPages.map (child) ->
+    childPages = templateChildrenPages(__filename, @props.state).map (child) ->
       {
         title: child.data.title
         order: child.data.order
