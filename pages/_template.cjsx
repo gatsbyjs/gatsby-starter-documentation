@@ -20,14 +20,17 @@ module.exports = React.createClass
     headerColors = colorPairsPicker(@props.config.headerColor, contrast: 5.5)
     darker = chroma(@props.config.headerColor).darken(9).hex()
     activeHeaderColors = colorPairsPicker(darker, contrast: 7)
-    docsActive = includes last(@getRoutes()).path, '/docs/'
-    examplesActive = includes last(@getRoutes()).path, '/examples/'
 
     # If building for gh-pages, add a url-prefix.
     if __GH_PAGES__
       urlPrefix = @props.config.ghPagesURLPrefix
     else
       urlPrefix = ""
+
+    # Test if our routes are active.
+    routes = @getRoutes().map (route) -> route.path
+    docsActive = "#{urlPrefix}/docs/" in routes
+    examplesActive = "#{urlPrefix}/examples/" in routes
 
     <div>
       <div
@@ -79,8 +82,8 @@ module.exports = React.createClass
               <Link
                 to="#{urlPrefix}/examples/"
                 style={{
-                  background: if @isActive('/examples/') then activeHeaderColors.bg else headerColors.bg
-                  color: if @isActive('/examples/') then activeHeaderColors.fg else headerColors.fg
+                  background: if examplesActive then activeHeaderColors.bg else headerColors.bg
+                  color: if examplesActive then activeHeaderColors.fg else headerColors.fg
                   float: 'right'
                   textDecoration: 'none'
                   paddingLeft: rhythm(1/2)
@@ -96,8 +99,8 @@ module.exports = React.createClass
               <Link
                 to="#{urlPrefix}/docs/"
                 style={{
-                  background: if @isActive('docs-template') then activeHeaderColors.bg else headerColors.bg
-                  color: if @isActive('docs-template') then activeHeaderColors.fg else headerColors.fg
+                  background: if docsActive then activeHeaderColors.bg else headerColors.bg
+                  color: if docsActive then activeHeaderColors.fg else headerColors.fg
                   float: 'right'
                   textDecoration: 'none'
                   paddingLeft: rhythm(1/2)

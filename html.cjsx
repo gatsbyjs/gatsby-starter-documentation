@@ -24,6 +24,11 @@ module.exports = React.createClass
     title = DocumentTitle.rewind()
     if @props.title then title = @props.title
 
+    if __GH_PAGES__? and __GH_PAGES__
+      urlPrefix = @props.config.ghPagesURLPrefix
+    else
+      urlPrefix = ""
+
     <html lang="en">
       <head>
         <meta charSet="utf-8"/>
@@ -50,28 +55,28 @@ module.exports = React.createClass
             background-size: 50px;
           }
           .ball-0 {
-            background-image: url(/docs/some-react-code/0.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/0.jpg);
           }
           .ball-1 {
-            background-image: url(/docs/some-react-code/1.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/1.jpg);
           }
           .ball-2 {
-            background-image: url(/docs/some-react-code/2.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/2.jpg);
           }
           .ball-3 {
-            background-image: url(/docs/some-react-code/3.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/3.jpg);
           }
           .ball-4 {
-            background-image: url(/docs/some-react-code/4.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/4.jpg);
           }
           .ball-5 {
-            background-image: url(/docs/some-react-code/5.jpg);
+            background-image: url(#{urlPrefix}/docs/some-react-code/5.jpg);
           }
         """}}
         />
       </head>
       <body className="landing-page">
         <div id="react-mount" dangerouslySetInnerHTML={{__html: @props.body}} />
-        <script src="/bundle.js"/>
+        <script src="#{urlPrefix}/bundle.js"/>
       </body>
     </html>
