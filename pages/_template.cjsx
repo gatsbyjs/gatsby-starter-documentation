@@ -23,6 +23,12 @@ module.exports = React.createClass
     docsActive = includes last(@getRoutes()).path, '/docs/'
     examplesActive = includes last(@getRoutes()).path, '/examples/'
 
+    # If building for gh-pages, add a url-prefix.
+    if __GH_PAGES__
+      urlPrefix = @props.config.ghPagesURLPrefix
+    else
+      urlPrefix = ""
+
     <div>
       <div
         style={{
@@ -48,7 +54,7 @@ module.exports = React.createClass
           >
             <Span columns=4>
               <Link
-                to="/"
+                to="#{urlPrefix}/"
                 style={{
                   textDecoration: 'none'
                   color: headerColors.fg
@@ -71,7 +77,7 @@ module.exports = React.createClass
                 Github
               </a>
               <Link
-                to="/examples/"
+                to="#{urlPrefix}/examples/"
                 style={{
                   background: if @isActive('/examples/') then activeHeaderColors.bg else headerColors.bg
                   color: if @isActive('/examples/') then activeHeaderColors.fg else headerColors.fg
@@ -88,7 +94,7 @@ module.exports = React.createClass
                 Examples
               </Link>
               <Link
-                to="/docs/"
+                to="#{urlPrefix}/docs/"
                 style={{
                   background: if @isActive('docs-template') then activeHeaderColors.bg else headerColors.bg
                   color: if @isActive('docs-template') then activeHeaderColors.fg else headerColors.fg
