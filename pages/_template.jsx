@@ -1,17 +1,17 @@
 import React from 'react';
 import { RouteHandler, Link, State } from 'react-router';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
-import Typography from 'typography';
 import colorPairsPicker from 'color-pairs-picker';
 import chroma from 'chroma-js';
 import includes from 'underscore.string/include';
 import { link } from 'gatsby-helpers';
 
+import typography from 'utils/typography';
+
 // Style code
 import 'css/github.css';
 
-var typography = new Typography();
-var rhythm = typography.rhythm, fontSizeToPx = typography.fontSizeToPx;
+const { rhythm, fontSizeToPx } = typography;
 
 module.exports = React.createClass({
   mixins: [State],
@@ -41,8 +41,6 @@ module.exports = React.createClass({
           style={{
             background: headerColors.bg,
             color: headerColors.fg,
-            borderBottom: '1px solid',
-            borderColor: 'rgb(200,200,200)',
             marginBottom: rhythm(1.5)
           }}
         >
@@ -50,7 +48,6 @@ module.exports = React.createClass({
             style={{
               maxWidth: 960,
               padding: `${rhythm(1/2)}`,
-              //paddingBottom: `calc(${rhythm(1/2)} - 1px)`
               paddingBottom: `${rhythm(1/2)}`
             }}
           >

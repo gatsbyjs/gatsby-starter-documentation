@@ -65,7 +65,8 @@ module.exports = React.createClass({
             <div
               style={{
                 overflowY: 'auto',
-                position: 'fixed',
+                paddingRight: `calc(${rhythm(1/2)} - 1px)`,
+                position: 'absolute',
                 width: `calc(${rhythm(8)} - 1px)`,
                 borderRight: '1px solid lightgrey'
               }}

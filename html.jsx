@@ -1,17 +1,8 @@
 import React from 'react';
-import Typography from 'typography';
 import DocumentTitle from 'react-document-title';
 
-var TypographyStyle = new Typography({
-  baseFontSize: '15px',
-  baseLineHeight: '22.5px',
-  bodyFontFamily: '"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
-  headerFontFamily: '"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
-  bodyWeight: 300,
-  headerWeight: 600,
-  boldWeight: 600,
-  modularScales: ['minor third']
-}).TypographyStyle;
+import typography from './utils/typography';
+const { TypographyStyle } = typography;
 
 module.exports = React.createClass({
   getDefaultProps: function() {
