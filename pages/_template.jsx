@@ -57,7 +57,12 @@ module.exports = React.createClass({
                 padding: `${rhythm(1/2)} 0`
               }}
             >
-              <Span columns={4}>
+              <Span
+                columns={4}
+                style={{
+                  height: 24 // Ugly hack. How better to constrain height of div?
+                }}
+              >
                 <Link
                   to={`${urlPrefix}/`}
                   style={{
