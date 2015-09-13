@@ -2,7 +2,7 @@ import React from 'react';
 import Demo from './_Demo';
 import DocumentTitle from 'react-document-title';
 
-module.exports = React.createClass({displayName: "exports",
+module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
