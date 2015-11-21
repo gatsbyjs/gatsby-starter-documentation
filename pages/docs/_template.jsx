@@ -5,8 +5,8 @@ import Typography from 'typography';
 import sortBy from 'lodash/collection/sortBy';
 import { templateChildrenPages } from 'gatsby-helpers';
 
-var typography = new Typography();
-var rhythm = typography.rhythm, fontSizeToMS = typography.fontSizeToMS;
+import typography from 'utils/typography';
+const { rhythm, fontSizeToPx } = typography;
 
 module.exports = React.createClass({
   mixins: [State, Navigation],
@@ -17,7 +17,6 @@ module.exports = React.createClass({
 
   render: function() {
     var childPages, docOptions, docPages;
-    rhythm = this.props.typography.rhythm;
     childPages = templateChildrenPages(__filename, this.props.state).map(function(child) {
       return {
         title: child.data.title,

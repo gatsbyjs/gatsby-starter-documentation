@@ -131,7 +131,7 @@ module.exports = React.createClass({
             paddingTop: 0
           }}
         >
-          <RouteHandler typography={typography} {...this.props}/>
+          <RouteHandler {...this.props}/>
         </Container>
       </div>
     );

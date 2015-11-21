@@ -1,6 +1,6 @@
 import Typography from 'typography';
 
-export default new Typography({
+const options = {
   baseFontSize: '16px',
   baseLineHeight: '24px',
   bodyFontFamily: '"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
@@ -8,5 +8,18 @@ export default new Typography({
   bodyWeight: 300,
   headerWeight: 600,
   boldWeight: 600,
-  modularScales: ['minor third']
-})
+  modularScales: [
+    {
+      "scale": "minor third"
+    }
+  ]
+}
+
+const typography = new Typography(options)
+
+// Hot reload typography in development.
+if (process.env.NODE_ENV !== "production") {
+  typography.injectStyles()
+}
+
+export default typography
