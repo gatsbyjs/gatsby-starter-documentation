@@ -16,7 +16,7 @@ const { rhythm, fontSizeToPx } = typography;
 module.exports = React.createClass({
   mixins: [State],
   render: function() {
-    var activeHeaderColors, darker, docsActive, examplesActive, headerColors, ref1, ref2, routes, urlPrefix;
+    var activeHeaderColors, darker, docsActive, examplesActive, headerColors, ref1, ref2, routes
     headerColors = colorPairsPicker(this.props.config.headerColor, {
       contrast: 5.5
     });
@@ -24,16 +24,12 @@ module.exports = React.createClass({
     activeHeaderColors = colorPairsPicker(darker, {
       contrast: 7
     });
-    if (__GH_PAGES__) {
-      urlPrefix = this.props.config.ghPagesURLPrefix;
-    } else {
-      urlPrefix = "";
-    }
+
     routes = this.getRoutes().map(function(route) {
       return route.path;
     });
-    docsActive = (routes.indexOf(urlPrefix + "/docs/") >= 0);
-    examplesActive = (routes.indexOf(urlPrefix + "/examples/") >= 0);
+    docsActive = (routes.indexOf(link("/docs/")) >= 0);
+    examplesActive = (routes.indexOf(link("/examples/")) >= 0);
 
     return (
       <div>
@@ -64,7 +60,7 @@ module.exports = React.createClass({
                 }}
               >
                 <Link
-                  to={`${urlPrefix}/`}
+                  to={link('/')}
                   style={{
                     textDecoration: 'none',
                     color: headerColors.fg,
@@ -87,7 +83,7 @@ module.exports = React.createClass({
                   Github
                 </a>
                 <Link
-                  to={`${urlPrefix}/examples/`}
+                  to={link('/examples/')}
                   style={{
                     background: examplesActive ? activeHeaderColors.bg : headerColors.bg,
                     color: examplesActive ? activeHeaderColors.fg : headerColors.fg,
@@ -104,7 +100,7 @@ module.exports = React.createClass({
                   Examples
                 </Link>
                 <Link
-                  to={`${urlPrefix}/docs/`}
+                  to={link('/docs/')}
                   style={{
                     background: docsActive ? activeHeaderColors.bg : headerColors.bg,
                     color: docsActive ? activeHeaderColors.fg : headerColors.fg,

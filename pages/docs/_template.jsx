@@ -3,7 +3,7 @@ import { RouteHandler, Link, State, Navigation } from 'react-router';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
 import Typography from 'typography';
 import sortBy from 'lodash/collection/sortBy';
-import { templateChildrenPages } from 'gatsby-helpers';
+import { link, templateChildrenPages } from 'gatsby-helpers';
 
 import typography from 'utils/typography';
 const { rhythm, fontSizeToPx } = typography;
@@ -36,7 +36,7 @@ module.exports = React.createClass({
     docPages = childPages.map((function(_this) {
       return function(child) {
         var isActive;
-        isActive = _this.isActive(child.path);
+        isActive = _this.isActive(link(child.path));
         return (
           <li
             key={child.path}
@@ -45,7 +45,7 @@ module.exports = React.createClass({
             }}
           >
             <Link
-              to={child.path}
+              to={link(child.path)}
               style={{
                 textDecoration: 'none'
               }}

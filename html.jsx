@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 
+import { link } from 'gatsby-helpers';
 import typography from './utils/typography';
 const { TypographyStyle } = typography;
 
@@ -12,15 +13,10 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var title, urlPrefix;
+    var title
     title = DocumentTitle.rewind();
     if (this.props.title) {
       title = this.props.title;
-    }
-    if ((typeof __GH_PAGES__ !== "undefined" && __GH_PAGES__ !== null) && __GH_PAGES__) {
-      urlPrefix = this.props.config.ghPagesURLPrefix;
-    } else {
-      urlPrefix = "";
     }
 
     return (
@@ -51,29 +47,29 @@ module.exports = React.createClass({
                 background-size: 50px;
               }
               .ball-0 {
-                background-image: url(${urlPrefix}/docs/some-react-code/0.jpg);
+                background-image: url(${link("/docs/some-react-code/0.jpg")});
               }
               .ball-1 {
-                background-image: url(${urlPrefix}/docs/some-react-code/1.jpg);
+                background-image: url(${link("/docs/some-react-code/1.jpg")});
               }
               .ball-2 {
-                background-image: url(${urlPrefix}/docs/some-react-code/2.jpg);
+                background-image: url(${link("/docs/some-react-code/2.jpg")});
               }
               .ball-3 {
-                background-image: url(${urlPrefix}/docs/some-react-code/3.jpg);
+                background-image: url(${link("/docs/some-react-code/3.jpg")});
               }
               .ball-4 {
-                background-image: url(${urlPrefix}/docs/some-react-code/4.jpg);
+                background-image: url(${link("/docs/some-react-code/4.jpg")});
               }
               .ball-5 {
-                background-image: url(${urlPrefix}/docs/some-react-code/5.jpg);
+                background-image: url(${link("/docs/some-react-code/5.jpg")});
               }
             `
           }} />
         </head>
         <body className="landing-page">
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
-          <script src={`${urlPrefix}/bundle.js`}/>
+          <script src={link("/bundle.js")}/>
         </body>
       </html>
     );
