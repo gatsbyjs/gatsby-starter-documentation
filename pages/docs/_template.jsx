@@ -30,7 +30,7 @@ module.exports = React.createClass({
     docOptions = childPages.map(function(child) {
       return React.createElement("option", {
         "key": link(child.path),
-        "value": child.path
+        "value": link(child.path)
       }, child.title);
     });
     docPages = childPages.map((function(_this) {
