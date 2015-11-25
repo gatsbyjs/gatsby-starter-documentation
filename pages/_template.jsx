@@ -1,10 +1,9 @@
 import React from 'react';
 import { RouteHandler, Link, State } from 'react-router';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
-import colorPairsPicker from 'color-pairs-picker';
-import chroma from 'chroma-js';
 import includes from 'underscore.string/include';
 import { link } from 'gatsby-helpers';
+import { colors, activeColors } from 'utils/colors'
 
 import typography from 'utils/typography';
 
@@ -16,27 +15,18 @@ const { rhythm, fontSizeToPx } = typography;
 module.exports = React.createClass({
   mixins: [State],
   render: function() {
-    var activeHeaderColors, darker, docsActive, examplesActive, headerColors, ref1, ref2, routes
-    headerColors = colorPairsPicker(this.props.config.headerColor, {
-      contrast: 5.5
-    });
-    darker = chroma(this.props.config.headerColor).darken(9).hex();
-    activeHeaderColors = colorPairsPicker(darker, {
-      contrast: 7
-    });
-
-    routes = this.getRoutes().map(function(route) {
+    const routes = this.getRoutes().map(function(route) {
       return route.path;
     });
-    docsActive = (routes.indexOf(link("/docs/")) >= 0);
-    examplesActive = (routes.indexOf(link("/examples/")) >= 0);
+    const docsActive = (routes.indexOf(link("/docs/")) >= 0);
+    const examplesActive = (routes.indexOf(link("/examples/")) >= 0);
 
     return (
       <div>
         <div
           style={{
-            background: headerColors.bg,
-            color: headerColors.fg,
+            background: colors.bg,
+            color: colors.fg,
             marginBottom: rhythm(1.5)
           }}
         >
@@ -63,7 +53,7 @@ module.exports = React.createClass({
                   to={link('/')}
                   style={{
                     textDecoration: 'none',
-                    color: headerColors.fg,
+                    color: colors.fg,
                     fontSize: fontSizeToPx("25.5px").fontSize
                   }}
                 >
@@ -74,7 +64,7 @@ module.exports = React.createClass({
                 <a
                   style={{
                     float: 'right',
-                    color: headerColors.fg,
+                    color: colors.fg,
                     textDecoration: 'none',
                     marginLeft: rhythm(1/2)
                   }}
@@ -85,8 +75,8 @@ module.exports = React.createClass({
                 <Link
                   to={link('/examples/')}
                   style={{
-                    background: examplesActive ? activeHeaderColors.bg : headerColors.bg,
-                    color: examplesActive ? activeHeaderColors.fg : headerColors.fg,
+                    background: examplesActive ? activeColors.bg : colors.bg,
+                    color: examplesActive ? activeColors.fg : colors.fg,
                     float: 'right',
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),
@@ -102,8 +92,8 @@ module.exports = React.createClass({
                 <Link
                   to={link('/docs/')}
                   style={{
-                    background: docsActive ? activeHeaderColors.bg : headerColors.bg,
-                    color: docsActive ? activeHeaderColors.fg : headerColors.fg,
+                    background: docsActive ? activeColors.bg : colors.bg,
+                    color: docsActive ? activeColors.fg : colors.fg,
                     float: 'right',
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),

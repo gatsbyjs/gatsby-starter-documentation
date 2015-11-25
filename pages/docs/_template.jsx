@@ -29,7 +29,7 @@ module.exports = React.createClass({
     });
     docOptions = childPages.map(function(child) {
       return React.createElement("option", {
-        "key": child.path,
+        "key": link(child.path),
         "value": child.path
       }, child.title);
     });

@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title';
 import { link } from 'gatsby-helpers';
 import typography from './utils/typography';
 const { TypographyStyle } = typography;
+import { colors, activeColors } from 'utils/colors'
 
 module.exports = React.createClass({
   getDefaultProps: function() {
@@ -31,7 +32,7 @@ module.exports = React.createClass({
           <style dangerouslySetInnerHTML={{__html:
             `
               a {
-                color: #884499;
+                color: ${colors.bg};
               }
               pre {
                 background: whitesmoke;
