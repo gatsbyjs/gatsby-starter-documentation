@@ -1,42 +1,40 @@
-import React from 'react';
-import { RouteHandler, Link, State, Navigation } from 'react-router';
-import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
-import Typography from 'typography';
-import sortBy from 'lodash/collection/sortBy';
-import { link, templateChildrenPages } from 'gatsby-helpers';
+import React from 'react'
+import { RouteHandler, Link, State, Navigation } from 'react-router'
+import { Breakpoint } from 'react-responsive-grid'
+import sortBy from 'lodash/collection/sortBy'
+import { link, templateChildrenPages } from 'gatsby-helpers'
 
-import typography from 'utils/typography';
-const { rhythm, fontSizeToPx } = typography;
+import typography from 'utils/typography'
+const { rhythm } = typography
 
 module.exports = React.createClass({
   mixins: [State, Navigation],
 
-  handleTopicChange: function(e) {
-    return this.transitionTo(e.target.value);
+  handleTopicChange (e) {
+    return this.transitionTo(e.target.value)
   },
 
-  render: function() {
-    var childPages, docOptions, docPages;
-    childPages = templateChildrenPages(__filename, this.props.state).map(function(child) {
+  render () {
+    const childPages = templateChildrenPages(__filename, this.props.state).map(function (child) {
       return {
         title: child.data.title,
         order: child.data.order,
-        path: child.path
-      };
-    });
-    childPages = sortBy(childPages, function(child) {
-      return child.order;
-    });
-    docOptions = childPages.map(function(child) {
-      return React.createElement("option", {
-        "key": link(child.path),
-        "value": link(child.path)
-      }, child.title);
-    });
-    docPages = childPages.map((function(_this) {
-      return function(child) {
-        var isActive;
-        isActive = _this.isActive(link(child.path));
+        path: child.path,
+      }
+    })
+    const childPages = sortBy(childPages, function (child) {
+      return child.order
+    })
+    const docOptions = childPages.map(function (child) {
+      return React.createElement('option', {
+        'key': link(child.path),
+        'value': link(child.path)
+      }, child.title)
+    })
+    const docPages = childPages.map((function (_this) {
+      return function (child) {
+        var isActive
+        isActive = _this.isActive(link(child.path))
         return (
           <li
             key={child.path}
@@ -54,8 +52,8 @@ module.exports = React.createClass({
             </Link>
           </li>
         )
-      };
-    })(this));
+      }
+    })(this))
 
     return (
       <div>
@@ -104,6 +102,6 @@ module.exports = React.createClass({
           <RouteHandler typography={typography} {...this.props}/>
         </Breakpoint>
       </div>
-    );
+    )
   }
-});
+})

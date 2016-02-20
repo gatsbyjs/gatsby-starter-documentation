@@ -1,25 +1,25 @@
-import React from 'react';
-import { RouteHandler, Link, State } from 'react-router';
-import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
-import includes from 'underscore.string/include';
-import { link } from 'gatsby-helpers';
+import React from 'react'
+import { RouteHandler, Link, State } from 'react-router'
+import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid'
+import includes from 'underscore.string/include'
+import { link } from 'gatsby-helpers'
 import { colors, activeColors } from 'utils/colors'
 
-import typography from 'utils/typography';
+import typography from 'utils/typography'
 
 // Style code
-import 'css/github.css';
+import 'css/github.css'
 
-const { rhythm, fontSizeToPx } = typography;
+const { rhythm, fontSizeToPx } = typography
 
 module.exports = React.createClass({
   mixins: [State],
-  render: function() {
-    const routes = this.getRoutes().map(function(route) {
-      return route.path;
-    });
-    const docsActive = (routes.indexOf(link("/docs/")) >= 0);
-    const examplesActive = (routes.indexOf(link("/examples/")) >= 0);
+  render: function () {
+    const routes = this.getRoutes().map(function (route) {
+      return route.path
+    })
+    const docsActive = (routes.indexOf(link('/docs/')) >= 0)
+    const examplesActive = (routes.indexOf(link('/examples/')) >= 0)
 
     return (
       <div>
@@ -54,13 +54,13 @@ module.exports = React.createClass({
                   style={{
                     textDecoration: 'none',
                     color: colors.fg,
-                    fontSize: fontSizeToPx("25.5px").fontSize
+                    fontSize: fontSizeToPx('25.5px').fontSize
                   }}
                 >
                   {this.props.config.siteTitle}
                 </Link>
               </Span>
-              <Span columns={8} last={true}>
+              <Span columns={8} last>
                 <a
                   style={{
                     float: 'right',
@@ -120,6 +120,6 @@ module.exports = React.createClass({
           <RouteHandler {...this.props}/>
         </Container>
       </div>
-    );
+    )
   }
-});
+})

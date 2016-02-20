@@ -1,26 +1,28 @@
-import React from 'react';
-import Demo from './_Demo';
-import DocumentTitle from 'react-document-title';
+import React from 'react'
+import Demo from './_Demo'
+import DocumentTitle from 'react-document-title'
+import { config } from 'config'
 
-module.exports = React.createClass({
+const SomeReactCode = React.createClass({
   statics: {
-    metadata: function() {
+    metadata () {
       return {
         order: 4,
-        title: "Some React Code"
-      };
-    }
+        title: 'Some React Code',
+      }
+    },
   },
 
-  render: function() {
+  render () {
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${SomeReactCode.metadata().title} | ${config.siteTitle}`}>
         <div>
           <h1>Some React Code</h1>
           <p>
             It's easy to intermix different file types. The other documentation pages
             are all written in Markdown but this page is a normal React.js component.
-            Gatsby has built-in support for Markdown, HTML, JSX, and CJSX (Coffeescript flavored JSX)
+            Gatsby has built-in support for Markdown, HTML, JSX,
+            and CJSX (Coffeescript flavored JSX)
             but it's easy to add support for additional file formats.
           </p>
           <p>
@@ -31,13 +33,15 @@ module.exports = React.createClass({
           </p>
           <div
             style={{
-              height: 500
+              height: 500,
             }}
           >
             <Demo/>
           </div>
         </div>
       </DocumentTitle>
-    );
-  }
-});
+    )
+  },
+})
+
+export default SomeReactCode
