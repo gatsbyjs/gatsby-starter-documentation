@@ -1,6 +1,5 @@
 ---
 title: Introduction
-order: 0
 ---
 
 **AlphabetJS** is the latest and greatest Javascript Framework. It's

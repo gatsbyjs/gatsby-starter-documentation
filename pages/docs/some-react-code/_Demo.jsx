@@ -17,8 +17,8 @@ const Demo = React.createClass({
   },
 
   getValues (currentPositions) {
-    // currentPositions of `null` means it's the first render for Spring
-    if (currentPositions === null) {
+    // No currentPositions means it's the first render for Spring
+    if (!currentPositions) {
       return { val: range(6).map(() => [0, 0]) }
     }
     const endValue = currentPositions.val.map((_, i) =>

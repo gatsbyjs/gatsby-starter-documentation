@@ -1,6 +1,5 @@
 ---
 title: How to Run
-order: 2
 ---
 
 Mostly you need to move your legs and arms together in coordinated

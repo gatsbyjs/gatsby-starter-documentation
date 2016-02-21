@@ -1,6 +1,5 @@
 ---
 title: The Next Step
-order: 3
 ---
 
 ## Basically do this

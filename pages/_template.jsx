@@ -1,11 +1,12 @@
 import React from 'react'
-import { RouteHandler, Link, State } from 'react-router'
-import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid'
-import includes from 'underscore.string/include'
+import { Link } from 'react-router'
+import { Container, Grid, Span } from 'react-responsive-grid'
 import { link } from 'gatsby-helpers'
+import includes from 'underscore.string/include'
 import { colors, activeColors } from 'utils/colors'
 
 import typography from 'utils/typography'
+import { config } from 'config'
 
 // Style code
 import 'css/github.css'
@@ -13,13 +14,14 @@ import 'css/github.css'
 const { rhythm, fontSizeToPx } = typography
 
 module.exports = React.createClass({
-  mixins: [State],
-  render: function () {
-    const routes = this.getRoutes().map(function (route) {
-      return route.path
-    })
-    const docsActive = (routes.indexOf(link('/docs/')) >= 0)
-    const examplesActive = (routes.indexOf(link('/examples/')) >= 0)
+  propTypes () {
+    return {
+      children: React.PropTypes.object,
+    }
+  },
+  render () {
+    const docsActive = includes(this.props.location.pathname, '/docs/')
+    const examplesActive = includes(this.props.location.pathname, '/examples/')
 
     return (
       <div>
@@ -27,26 +29,26 @@ module.exports = React.createClass({
           style={{
             background: colors.bg,
             color: colors.fg,
-            marginBottom: rhythm(1.5)
+            marginBottom: rhythm(1.5),
           }}
         >
           <Container
             style={{
               maxWidth: 960,
               padding: `${rhythm(1/2)}`,
-              paddingBottom: `${rhythm(1/2)}`
+              paddingBottom: `${rhythm(1/2)}`,
             }}
           >
             <Grid
               columns={12}
               style={{
-                padding: `${rhythm(1/2)} 0`
+                padding: `${rhythm(1/2)} 0`,
               }}
             >
               <Span
                 columns={4}
                 style={{
-                  height: 24 // Ugly hack. How better to constrain height of div?
+                  height: 24, // Ugly hack. How better to constrain height of div?
                 }}
               >
                 <Link
@@ -54,10 +56,10 @@ module.exports = React.createClass({
                   style={{
                     textDecoration: 'none',
                     color: colors.fg,
-                    fontSize: fontSizeToPx('25.5px').fontSize
+                    fontSize: fontSizeToPx('25.5px').fontSize,
                   }}
                 >
-                  {this.props.config.siteTitle}
+                  {config.siteTitle}
                 </Link>
               </Span>
               <Span columns={8} last>
@@ -66,7 +68,7 @@ module.exports = React.createClass({
                     float: 'right',
                     color: colors.fg,
                     textDecoration: 'none',
-                    marginLeft: rhythm(1/2)
+                    marginLeft: rhythm(1/2),
                   }}
                   href="https://github.com/gatsbyjs/gatsby"
                 >
@@ -84,7 +86,7 @@ module.exports = React.createClass({
                     paddingBottom: rhythm(1),
                     marginBottom: rhythm(-1),
                     paddingTop: rhythm(1),
-                    marginTop: rhythm(-1)
+                    marginTop: rhythm(-1),
                   }}
                 >
                   Examples
@@ -101,7 +103,7 @@ module.exports = React.createClass({
                     paddingBottom: rhythm(1),
                     marginBottom: rhythm(-1),
                     paddingTop: rhythm(1),
-                    marginTop: rhythm(-1)
+                    marginTop: rhythm(-1),
                   }}
                 >
                   Documentation
@@ -114,12 +116,12 @@ module.exports = React.createClass({
           style={{
             maxWidth: 960,
             padding: `${rhythm(1)} ${rhythm(1/2)}`,
-            paddingTop: 0
+            paddingTop: 0,
           }}
         >
-          <RouteHandler {...this.props}/>
+          {this.props.children}
         </Container>
       </div>
     )
-  }
+  },
 })

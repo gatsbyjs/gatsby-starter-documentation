@@ -1,6 +1,5 @@
 ---
 title: Conclusion
-order: 5
 ---
 
 You're probably getting pretty good at whatever thing we're explaining
