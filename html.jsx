@@ -18,6 +18,11 @@ module.exports = React.createClass({
       title = this.props.title
     }
 
+    let cssLink
+    if (process.env.NODE_ENV === 'production') {
+      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
+    }
+
     return (
       <html lang="en">
         <head>
@@ -30,25 +35,13 @@ module.exports = React.createClass({
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon}/>
           <TypographyStyle/>
+          {cssLink}
           <style
             dangerouslySetInnerHTML={{
               __html:
                 `
                   a {
                     color: ${colors.bg};
-                  }
-                  pre {
-                    background: whitesmoke;
-                    padding: 1.5rem;
-                  }
-                  .demo1-ball {
-                    border-radius: 99px;
-                    background-color: white;
-                    width: 50px;
-                    height: 50px;
-                    border: 3px solid white;
-                    position: absolute;
-                    background-size: 50px;
                   }
                   .ball-0 {
                     background-image: url(${link('/docs/some-react-code/0.jpg')});
