@@ -36,7 +36,7 @@ const SomeReactCode = React.createClass({
               height: 500,
             }}
           >
-            <Demo/>
+            <Demo />
           </div>
         </div>
       </DocumentTitle>
