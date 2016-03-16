@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { Breakpoint } from 'react-responsive-grid'
 import find from 'lodash/find'
 import { link } from 'gatsby-helpers'
-import pageList from './_pages.yaml'
+import { config } from 'config'
 
 import typography from 'utils/typography'
 const { rhythm } = typography
@@ -22,7 +22,7 @@ module.exports = React.createClass({
   },
 
   render () {
-    const childPages = pageList.map((p) => {
+    const childPages = config.docPages.map((p) => {
       const page = find(this.props.route.pages, (_p) => _p.path === p)
       return {
         title: page.data.title,
