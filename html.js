@@ -65,7 +65,7 @@ module.exports = React.createClass({
             }}
           />
         </head>
-        <body className="landing-page">
+        <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           <script src={link('/bundle.js')} />
         </body>
