@@ -7,7 +7,6 @@ const SomeReactCode = React.createClass({
   statics: {
     metadata () {
       return {
-        order: 4,
         title: 'Some React Code',
       }
     },
