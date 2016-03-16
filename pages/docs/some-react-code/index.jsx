@@ -22,7 +22,7 @@ const SomeReactCode = React.createClass({
             are all written in Markdown but this page is a normal React.js component.
             Gatsby has built-in support for Markdown, HTML, JSX,
             CJSX (Coffeescript flavored JSX), JSON, YAML, and TOML
-            but it's easy to add support for additional file formats.
+            and it's easy to add support for additional file formats.
           </p>
           <p>
             React.js component pages makes it easy to add interactivity or ajax enhancements
