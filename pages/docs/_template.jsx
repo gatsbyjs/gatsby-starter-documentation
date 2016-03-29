@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Breakpoint } from 'react-responsive-grid'
 import find from 'lodash/find'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import { config } from 'config'
 
 import typography from 'utils/typography'
@@ -31,15 +31,15 @@ module.exports = React.createClass({
     })
     const docOptions = childPages.map((child) =>
       <option
-        key={link(child.path)}
-        value={link(child.path)}
+        key={prefixLink(child.path)}
+        value={prefixLink(child.path)}
       >
         {child.title}
       </option>
 
     )
     const docPages = childPages.map((child) => {
-      const isActive = link(child.path) === this.props.location.pathname
+      const isActive = prefixLink(child.path) === this.props.location.pathname
       return (
         <li
           key={child.path}
@@ -48,7 +48,7 @@ module.exports = React.createClass({
           }}
         >
           <Link
-            to={link(child.path)}
+            to={prefixLink(child.path)}
             style={{
               textDecoration: 'none',
             }}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Container, Grid, Span } from 'react-responsive-grid'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import includes from 'underscore.string/include'
 import { colors, activeColors } from 'utils/colors'
 
@@ -53,7 +53,7 @@ module.exports = React.createClass({
                 }}
               >
                 <Link
-                  to={link('/')}
+                  to={prefixLink('/')}
                   style={{
                     textDecoration: 'none',
                     color: colors.fg,
@@ -76,7 +76,7 @@ module.exports = React.createClass({
                   Github
                 </a>
                 <Link
-                  to={link('/examples/')}
+                  to={prefixLink('/examples/')}
                   style={{
                     background: examplesActive ? activeColors.bg : colors.bg,
                     color: examplesActive ? activeColors.fg : colors.fg,
@@ -93,7 +93,7 @@ module.exports = React.createClass({
                   Examples
                 </Link>
                 <Link
-                  to={link('/docs/')}
+                  to={prefixLink('/docs/')}
                   style={{
                     background: docsActive ? activeColors.bg : colors.bg,
                     color: docsActive ? activeColors.fg : colors.fg,

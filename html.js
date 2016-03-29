@@ -1,26 +1,21 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
 
-import { link } from 'gatsby-helpers'
-import typography from './utils/typography'
-const { TypographyStyle } = typography
+import { prefixLink } from 'gatsby-helpers'
+import { TypographyStyle } from 'utils/typography'
 import { colors } from 'utils/colors'
 
 module.exports = React.createClass({
-  propTypes () {
-    return {
-      title: React.PropTypes.string,
-    }
+  displayName: 'HTML',
+  propTypes: {
+    body: React.PropTypes.string,
   },
   render () {
-    let title = DocumentTitle.rewind()
-    if (this.props.title) {
-      title = this.props.title
-    }
+    const title = DocumentTitle.rewind()
 
     let cssLink
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
+      cssLink = <link rel="stylesheet" href={prefixLink('/styles.css')} />
     }
 
     return (
@@ -33,7 +28,6 @@ module.exports = React.createClass({
             content="width=device-width, initial-scale=1.0 maximum-scale=5.0"
           />
           <title>{title}</title>
-          <link rel="shortcut icon" href={this.props.favicon} />
           <TypographyStyle />
           {cssLink}
           <style
@@ -44,22 +38,22 @@ module.exports = React.createClass({
                     color: ${colors.bg};
                   }
                   .ball-0 {
-                    background-image: url(${link('/docs/some-react-code/0.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/0.jpg')});
                   }
                   .ball-1 {
-                    background-image: url(${link('/docs/some-react-code/1.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/1.jpg')});
                   }
                   .ball-2 {
-                    background-image: url(${link('/docs/some-react-code/2.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/2.jpg')});
                   }
                   .ball-3 {
-                    background-image: url(${link('/docs/some-react-code/3.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/3.jpg')});
                   }
                   .ball-4 {
-                    background-image: url(${link('/docs/some-react-code/4.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/4.jpg')});
                   }
                   .ball-5 {
-                    background-image: url(${link('/docs/some-react-code/5.jpg')});
+                    background-image: url(${prefixLink('/docs/some-react-code/5.jpg')});
                   }
                 `,
             }}
@@ -67,7 +61,7 @@ module.exports = React.createClass({
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
-          <script src={link('/bundle.js')} />
+          <script src={prefixLink('/bundle.js')} />
         </body>
       </html>
     )
