@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { Breakpoint } from 'react-responsive-grid'
+import Breakpoint from 'components/Breakpoint'
 import find from 'lodash/find'
 import { prefixLink } from 'gatsby-helpers'
 import { config } from 'config'
@@ -58,10 +58,11 @@ module.exports = React.createClass({
         </li>
       )
     })
-
     return (
       <div>
-        <Breakpoint minWidth={700}>
+        <Breakpoint
+          mobile
+        >
           <div
             style={{
               overflowY: 'auto',
@@ -90,7 +91,7 @@ module.exports = React.createClass({
             {this.props.children}
           </div>
         </Breakpoint>
-        <Breakpoint maxWidth={700}>
+        <Breakpoint>
           <strong>Topics:</strong>
           {' '}
           <select
