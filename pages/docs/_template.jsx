@@ -53,7 +53,7 @@ module.exports = React.createClass({
               textDecoration: 'none',
             }}
           >
-            {isActive ? <strong>{child.title}</strong> : child.title }
+            {isActive ? <strong>{child.title}</strong> : child.title}
           </Link>
         </li>
       )
