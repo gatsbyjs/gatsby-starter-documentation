@@ -15,9 +15,9 @@ module.exports = React.createClass({
   render () {
     const title = DocumentTitle.rewind()
 
-    let cssLink
+    let css
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={prefixLink('/styles.css')} />
+      css = <style dangerouslySetInnerHTML={{ __html: require('!raw!./public/styles.css') }} />
     }
 
     return (
@@ -31,7 +31,7 @@ module.exports = React.createClass({
           />
           <title>{title}</title>
           <TypographyStyle />
-          {cssLink}
+          {css}
           <style
             dangerouslySetInnerHTML={{
               __html:
