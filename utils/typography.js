@@ -10,7 +10,7 @@ const options = {
   boldWeight: 600,
   modularScales: [
     {
-      scale: 'minor third',
+      scale: 'golden',
     },
   ],
 }
