@@ -36,14 +36,14 @@ module.exports = React.createClass({
           <Container
             style={{
               maxWidth: 960,
-              padding: `${rhythm(1/2)}`,
+              padding: `${rhythm(3/4)}`,
               paddingBottom: `${rhythm(1/2)}`,
             }}
           >
             <Grid
               columns={12}
               style={{
-                padding: `${rhythm(1/2)} 0`,
+                padding: `${rhythm(3/4)} 0`,
               }}
             >
               <Span
@@ -116,7 +116,7 @@ module.exports = React.createClass({
         <Container
           style={{
             maxWidth: 960,
-            padding: `${rhythm(1)} ${rhythm(1/2)}`,
+            padding: `${rhythm(1)} ${rhythm(3/4)}`,
             paddingTop: 0,
           }}
         >
