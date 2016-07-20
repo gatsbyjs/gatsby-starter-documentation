@@ -36,8 +36,7 @@ module.exports = React.createClass({
           <Container
             style={{
               maxWidth: 960,
-              padding: `${rhythm(3/4)}`,
-              paddingBottom: `${rhythm(1/2)}`,
+              paddingLeft: rhythm(3/4),
             }}
           >
             <Grid
@@ -84,7 +83,7 @@ module.exports = React.createClass({
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),
                     paddingRight: rhythm(1/2),
-                    paddingBottom: rhythm(1),
+                    paddingBottom: rhythm(3/4),
                     marginBottom: rhythm(-1),
                     paddingTop: rhythm(1),
                     marginTop: rhythm(-1),
@@ -101,7 +100,7 @@ module.exports = React.createClass({
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),
                     paddingRight: rhythm(1/2),
-                    paddingBottom: rhythm(1),
+                    paddingBottom: rhythm(3/4),
                     marginBottom: rhythm(-1),
                     paddingTop: rhythm(1),
                     marginTop: rhythm(-1),
