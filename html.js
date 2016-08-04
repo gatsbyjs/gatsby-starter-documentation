@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentTitle from 'react-document-title'
 
 import { prefixLink } from 'gatsby-helpers'
-import { TypographyStyle } from 'typography-react'
+import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from './utils/typography'
 import { colors } from 'utils/colors'
 
@@ -32,6 +32,7 @@ module.exports = React.createClass({
           />
           <title>{title}</title>
           <TypographyStyle typography={typography} />
+          <GoogleFont typography={typography} />
           {css}
           <style
             dangerouslySetInnerHTML={{
