@@ -12,7 +12,7 @@ import { config } from 'config'
 import 'css/main.css'
 import 'css/github.css'
 
-const { rhythm, fontSizeToPx } = typography
+const { rhythm, adjustFontSizeTo } = typography
 
 module.exports = React.createClass({
   propTypes () {
@@ -56,7 +56,7 @@ module.exports = React.createClass({
                   style={{
                     textDecoration: 'none',
                     color: colors.fg,
-                    fontSize: fontSizeToPx('25.5px').fontSize,
+                    fontSize: adjustFontSizeTo('25.5px').fontSize,
                   }}
                 >
                   {config.siteTitle}
