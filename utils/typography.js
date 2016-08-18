@@ -1,17 +1,17 @@
 import Typography from 'typography'
+import CodePlugin from 'typography-plugin-code'
 
 const options = {
   baseFontSize: '16px',
-  baseLineHeight: '24px',
+  baseLineHeight: 1.5,
   bodyFontFamily: ['Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
   headerFontFamily: ['Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-  bodyWeight: 300,
-  headerWeight: 600,
-  boldWeight: 600,
-  modularScales: [
-    {
-      scale: 'golden',
-    },
+  bodyWeight: 400,
+  headerWeight: 700,
+  boldWeight: 700,
+  scale: 1.618,
+  plugins: [
+    new CodePlugin(),
   ],
 }
 
