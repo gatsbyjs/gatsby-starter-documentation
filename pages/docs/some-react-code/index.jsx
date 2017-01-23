@@ -3,18 +3,18 @@ import Demo from './_Demo'
 import DocumentTitle from 'react-document-title'
 import { config } from 'config'
 
+exports.data = {
+  title: 'Some React Code',
+  date: `${new Date()}`
+}
+
 const SomeReactCode = React.createClass({
-  statics: {
-    metadata () {
-      return {
-        title: 'Some React Code',
-      }
-    },
-  },
 
   render () {
+    const page = this.props.route.page
+
     return (
-      <DocumentTitle title={`${SomeReactCode.metadata().title} | ${config.siteTitle}`}>
+      <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
         <div>
           <h1>Some React Code</h1>
           <p>
