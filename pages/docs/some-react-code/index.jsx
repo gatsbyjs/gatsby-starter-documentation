@@ -5,8 +5,7 @@ import { config } from 'config'
 
 exports.data = {
   title: 'Some React Code',
-  referencingExportsData: ' You can even use data preset in the props on other pages or on this page (this is) ',
-  referencingDirectly: 'which is different then referencing the variable directly.'
+  date: `${new Date()}`
 }
 
 const SomeReactCode = React.createClass({
@@ -17,14 +16,13 @@ const SomeReactCode = React.createClass({
     return (
       <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
         <div>
-          <h1>{ page.data.title }</h1>
+          <h1>Some React Code</h1>
           <p>
             It's easy to intermix different file types. The other documentation pages
             are all written in Markdown but this page is a normal React.js component.
             Gatsby has built-in support for Markdown, HTML, JSX,
             CJSX (Coffeescript flavored JSX), JSON, YAML, and TOML
-            and it's easy to add support for additional file formats. 
-            {page.data.referencingExportsData} {exports.data.referencingDirectly}
+            and it's easy to add support for additional file formats.
           </p>
           <p>
             React.js component pages makes it easy to add interactivity or ajax enhancements
