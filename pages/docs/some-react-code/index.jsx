@@ -5,7 +5,6 @@ import { config } from 'config'
 
 exports.data = {
   title: 'Some React Code',
-  date: `${new Date()}`
 }
 
 const SomeReactCode = React.createClass({
