@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Spring } from 'react-motion'
 import range from 'lodash/range'
 
-const Demo = React.createClass({
-  getInitialState () {
-    return { mouse: [250, 300] }
-  },
+class Demo extends Component {
+  constructor () {
+    super()
+    this.state = { mouse: [250, 300] }
+  }
 
   componentDidMount () {
     const rect = ReactDOM.findDOMNode(this).getBoundingClientRect()
@@ -14,9 +15,9 @@ const Demo = React.createClass({
       left: rect.left,
       top: rect.top,
     })
-  },
+  }
 
-  getValues (currentPositions) {
+  getValues = (currentPositions) => {
     // No currentPositions means it's the first render for Spring
     if (!currentPositions) {
       return { val: range(6).map(() => [0, 0]) }
@@ -33,15 +34,15 @@ const Demo = React.createClass({
       }
     })
     return { val: endValue, config: [120, 17] }
-  },
+  }
 
-  handleMouseMove ({ pageX, pageY }) {
+  handleMouseMove = ({ pageX, pageY }) => {
     this.setState({ mouse: [pageX-this.state.left, pageY-this.state.top] })
-  },
+  }
 
-  handleTouchMove ({ touches }) {
+  handleTouchMove = ({ touches }) => {
     this.handleMouseMove(touches[0])
-  },
+  }
 
   render () {
     return (
@@ -70,7 +71,7 @@ const Demo = React.createClass({
         }
       </Spring>
     )
-  },
-})
+  }
+}
 
 export default Demo

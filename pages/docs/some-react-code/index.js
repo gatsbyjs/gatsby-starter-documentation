@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Demo from './_Demo'
 import DocumentTitle from 'react-document-title'
 import { config } from 'config'
@@ -7,7 +7,7 @@ exports.data = {
   title: 'Some React Code',
 }
 
-const SomeReactCode = React.createClass({
+class SomeReactCode extends Component {
 
   render () {
     const page = this.props.route.page
@@ -39,7 +39,7 @@ const SomeReactCode = React.createClass({
         </div>
       </DocumentTitle>
     )
-  },
-})
+  }
+}
 
 export default SomeReactCode
