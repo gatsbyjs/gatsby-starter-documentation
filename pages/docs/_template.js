@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
+import PropTypes from 'prop-types'
 import Breakpoint from 'components/Breakpoint'
 import find from 'lodash/find'
 import { prefixLink } from 'gatsby-helpers'
@@ -8,19 +9,10 @@ import { config } from 'config'
 import typography from 'utils/typography'
 const { rhythm } = typography
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      route: React.PropTypes.object,
-    }
-  },
-  contextTypes: {
-    router: React.PropTypes.object.isRequired,
-  },
+class Template extends Component {
   handleTopicChange (e) {
     return this.context.router.push(e.target.value)
-  },
-
+  }
   render () {
     const childPages = config.docPages.map((p) => {
       const page = find(this.props.route.pages, (_p) => _p.path === p)
@@ -106,5 +98,15 @@ module.exports = React.createClass({
         </Breakpoint>
       </div>
     )
-  },
-})
+  }
+}
+
+Template.contextTypes = {
+    router: PropTypes.object.isRequired
+}
+
+Template.propTypes = {
+  route: PropTypes.object
+}
+
+export default Template;

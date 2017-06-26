@@ -1,13 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import DocumentTitle from 'react-document-title'
+import PropTypes from 'prop-types'
 import { config } from 'config'
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      route: React.PropTypes.object,
-    }
-  },
+class Md extends Component {
   render () {
     const post = this.props.route.page.data
 
@@ -19,5 +15,11 @@ module.exports = React.createClass({
         </div>
       </DocumentTitle>
     )
-  },
-})
+  }
+}
+
+Md.propTypes = {
+  route: PropTypes.object,
+}
+
+export default Md;

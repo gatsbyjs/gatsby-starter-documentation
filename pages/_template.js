@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import { Container, Grid, Span } from 'react-responsive-grid'
 import { prefixLink } from 'gatsby-helpers'
@@ -14,12 +15,7 @@ import 'css/github.css'
 
 const { rhythm, adjustFontSizeTo } = typography
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      children: React.PropTypes.object,
-    }
-  },
+class Template extends Component {
   render () {
     const docsActive = includes(this.props.location.pathname, '/docs/')
     const examplesActive = includes(this.props.location.pathname, '/examples/')
@@ -123,5 +119,11 @@ module.exports = React.createClass({
         </Container>
       </div>
     )
-  },
-})
+  }
+}
+
+Template.propTypes = {
+  children: PropTypes.object,
+}
+
+export default Template

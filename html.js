@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import DocumentTitle from 'react-document-title'
 
 import { prefixLink } from 'gatsby-helpers'
@@ -8,11 +9,7 @@ import { colors } from 'utils/colors'
 
 const BUILD_TIME = new Date().getTime()
 
-module.exports = React.createClass({
-  displayName: 'HTML',
-  propTypes: {
-    body: React.PropTypes.string,
-  },
+class Html extends Component {
   render () {
     const title = DocumentTitle.rewind()
 
@@ -69,5 +66,11 @@ module.exports = React.createClass({
         </body>
       </html>
     )
-  },
-})
+  }
+}
+
+Html.propTypes = {
+  body: PropTypes.string,
+}
+
+export default Html
